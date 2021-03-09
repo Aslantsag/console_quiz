@@ -1,4 +1,4 @@
-# name = input("Enter your name: ")
+name = input("Enter your name: ")
 
 with open('wlist.txt') as txt:
     all_quests = 0
