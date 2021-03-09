@@ -10,8 +10,8 @@ with open('wlist.txt') as txt:
             ans_num = 1
             success = 0
             count = quiz.index(item) + 1
-            while True:
-                if quiz[count][0] == 'L':
+            try:
+                while quiz[count][0] == 'L':
                     if quiz[count][2] == '+':
                         r_ans = ans_num
                         ans_text = quiz[count][3:]
@@ -20,14 +20,14 @@ with open('wlist.txt') as txt:
 
                     print(f"{ans_num} - {ans_text}")
                     ans_num += 1
-                else:
-                    ans = int(input(">>> "))
-                    
-                    if ans == r_ans:
-                        success += 1
-                        print("Правильно, молодец!")
-                    else:
-                        print("Неправильно!")
+                    count += 1
 
-                    break
-                count += 1
+                ans = int(input(">>> "))
+                
+                if ans == r_ans:
+                    success += 1
+                    print("Правильно, молодец!")
+                else:
+                    print("Неправильно!")
+            except:
+                print("Тест окончен")
