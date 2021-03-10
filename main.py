@@ -1,10 +1,13 @@
-name = input("Enter your name: ")
+FILE = 'wlist.txt'
 
-with open('wlist.txt') as txt:
+with open(FILE) as txt:
+
     all_quests = 0
     success = 0
     quiz = txt.read().split("\n")
+
     for item in quiz:
+
         if item[0] == 'Q':
             quest = item[2:]
             print(quest+"\n")
@@ -27,9 +30,9 @@ with open('wlist.txt') as txt:
             
             if ans == r_ans:
                 success += 1
-                print("Правильно, молодец!")
+                print("Success")
             else:
-                print("Неправильно!")
+                print("Error!")
             print("\n")
                 
-    print(f"Тест окончен! Правильно: {success}, Неправильно: {all_quests - success}, Всего: {all_quests}")
+    print(f"Quiz over! Success: {success}, Error: {all_quests - success}, All: {all_quests}")
