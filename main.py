@@ -7,7 +7,6 @@ with open(FILE) as txt:
     quiz = txt.read().split("\n")
 
     for item in quiz:
-
         if item[0] == 'Q':
             quest = item[2:]
             print(quest+"\n")
